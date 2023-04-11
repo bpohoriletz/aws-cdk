@@ -24,7 +24,7 @@ export class HitCounter extends Construct {
       code: lambda.Code.fromAsset('lambda'),
       environment: {
         DOWNSTREAM_FUNCTION_NAME: props.downstream.functionName,
-        HITS_TABLE_NAME: props.downstream.tableName
+        HITS_TABLE_NAME: table.tableName
       }
     });
   }
