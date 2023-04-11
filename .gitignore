@@ -9,3 +9,6 @@ cdk.out
 
 # DiffMerge
 *.orig
+
+# Code
+!lambda/*.js
