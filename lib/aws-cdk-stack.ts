@@ -22,6 +22,12 @@ export class AwsCdkStack extends cdk.Stack {
     // defines an API Gateway REST API resource backed by our "hello" function.
     new apigw.LambdaRestApi(this, 'Endpoint', {
       handler: helloWithCounter.handler
-    })
+    });
+
+    // table viewer
+    new TableViewer(this, 'ViewHitCounter', {
+      title: 'Hello Hits',
+      table: helloWithCounter.table
+    });
   }
 }
