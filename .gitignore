@@ -12,3 +12,6 @@ cdk.out
 
 # Code
 !lambda/*.js
+
+# OSX
+.DS_Store
