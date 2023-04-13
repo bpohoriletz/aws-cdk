@@ -6,7 +6,7 @@ import { TableViewer } from 'cdk-dynamo-table-viewer';
 import { Construct } from 'constructs';
 
 export class AwsCdkStack extends cdk.Stack {
-  public readonly hcVievUrl: cdk.CfnOutput;
+  public readonly hcViewerUrl: cdk.CfnOutput;
   public readonly hcEndpoint: cdk.CfnOutput;
 
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -39,7 +39,7 @@ export class AwsCdkStack extends cdk.Stack {
       value: gateway.url
     });
 
-    this.hcVievUrl = new cdk.CfnOutput(this, 'TableViewerUrl', {
+    this.hcViewerUrl = new cdk.CfnOutput(this, 'TableViewerUrl', {
       value: tv.endpoint
     });
   }

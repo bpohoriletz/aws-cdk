@@ -1,11 +1,17 @@
 import { AwsCdkStack } from './aws-cdk-stack';
-import { Stage, StageProps } from 'aws-cdk-lib';
+import { Stage, CfnOutput, StageProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 
 export class WorkshopPipelineStage extends Stage {
-    constructor(scope: Construct, id: string, props?: StageProps) {
-        super(scope, id, props);
+  public readonly hcViewerUrl: CfnOutput;
+  public readonly hcEndpoint: CfnOutput;
 
-        new AwsCdkStack(this, 'WebService');
-    }
+  constructor(scope: Construct, id: string, props?: StageProps) {
+    super(scope, id, props);
+
+    const service = new AwsCdkStack(this, 'WebService');
+
+    this.hcEndpoint = service.hcEndpoint;
+    this.hcViewerUrl = service.hcViewerUrl;
+  }
 }
